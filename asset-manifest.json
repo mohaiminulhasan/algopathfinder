@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/algopathfinder/static/css/main.ff6a4a47.chunk.css",
-    "main.js": "/algopathfinder/static/js/main.c8d78a52.chunk.js",
-    "main.js.map": "/algopathfinder/static/js/main.c8d78a52.chunk.js.map",
+    "main.css": "/algopathfinder/static/css/main.f58c6139.chunk.css",
+    "main.js": "/algopathfinder/static/js/main.98e4d989.chunk.js",
+    "main.js.map": "/algopathfinder/static/js/main.98e4d989.chunk.js.map",
     "runtime-main.js": "/algopathfinder/static/js/runtime-main.1ee7fa8d.js",
     "runtime-main.js.map": "/algopathfinder/static/js/runtime-main.1ee7fa8d.js.map",
-    "static/js/2.15268907.chunk.js": "/algopathfinder/static/js/2.15268907.chunk.js",
-    "static/js/2.15268907.chunk.js.map": "/algopathfinder/static/js/2.15268907.chunk.js.map",
+    "static/js/2.f844037d.chunk.js": "/algopathfinder/static/js/2.f844037d.chunk.js",
+    "static/js/2.f844037d.chunk.js.map": "/algopathfinder/static/js/2.f844037d.chunk.js.map",
     "index.html": "/algopathfinder/index.html",
-    "static/css/main.ff6a4a47.chunk.css.map": "/algopathfinder/static/css/main.ff6a4a47.chunk.css.map",
-    "static/js/2.15268907.chunk.js.LICENSE.txt": "/algopathfinder/static/js/2.15268907.chunk.js.LICENSE.txt"
+    "static/css/main.f58c6139.chunk.css.map": "/algopathfinder/static/css/main.f58c6139.chunk.css.map",
+    "static/js/2.f844037d.chunk.js.LICENSE.txt": "/algopathfinder/static/js/2.f844037d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1ee7fa8d.js",
-    "static/js/2.15268907.chunk.js",
-    "static/css/main.ff6a4a47.chunk.css",
-    "static/js/main.c8d78a52.chunk.js"
+    "static/js/2.f844037d.chunk.js",
+    "static/css/main.f58c6139.chunk.css",
+    "static/js/main.98e4d989.chunk.js"
   ]
 }
