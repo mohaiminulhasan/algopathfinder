@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100vh;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  display: grid;
+  /* grid-template-columns: repeat(10, 1fr); CSS applied inside component */
+  gap: 1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.node {
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #1D3557;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popped {
+  background-color: #e63946;
+}
+
+.path {
+  background-color: #fca311;
+}
+
+.start{
+  background-color: lightgreen;
+}
+
+.destination {
+  background-color: coral;
+}
+
+.discovered {
+  background-color: #A8DADC;
+}
+
+.obstacle {
+  background-color: #14213d;
 }
