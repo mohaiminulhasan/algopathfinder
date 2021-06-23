@@ -1,5 +1,5 @@
-export const num_rows = 15
-export const num_cols = 15
+export const num_rows = 23
+export const num_cols = 23
 
 export const offsets = {
   "up": [-1, 0],

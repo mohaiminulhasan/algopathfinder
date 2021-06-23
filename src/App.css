@@ -5,9 +5,20 @@
   align-items: center;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
 .container {
   display: grid;
-  /* grid-template-columns: repeat(10, 1fr); CSS applied inside component */
   gap: 1px;
 }
 

@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react'
 import { Node } from './Node'
 import { initialGrid, arrayEquals, updateGrid, num_cols } from '../utils'
-import { dfs } from '../algorithms'
+import { dfs, bfs, astar } from '../algorithms'
 
 export const Grid = () => {
   const [grid, setGrid] = useState();
   const [findPath, setFindPath] = useState(false)
-  const [start, setStart] = useState([0, 0])
-  const [end, setEnd] = useState([9, 4])
+  const [start, setStart] = useState([11, 2])
+  const [end, setEnd] = useState([11, 19])
   const [obstacle, setObstacle] = useState([])
   const [mousePressed, setMousePressed] = useState(false)
   const [fixStart, setFixStart] = useState(false)
   const [fixEnd, setFixEnd] = useState(false)
+  const [algorithm, setAlgorithm] = useState('astar')
 
   const START_ROW = start[0]
   const START_COL = start[1]
@@ -22,11 +23,24 @@ export const Grid = () => {
     setGrid(initialGrid(start, end, obstacle))
   }, [])
 
-  useEffect(() => console.log(grid && grid[0]), [grid])
+  // useEffect(() => console.log(grid && grid[0]), [grid])
 
   useEffect(() => {
     if (findPath) {
-      dfs([START_ROW, START_COL], [END_ROW, END_COL], grid, setGrid, obstacle, findPath)
+      switch (algorithm) {
+        case 'dfs':
+          dfs([START_ROW, START_COL], [END_ROW, END_COL], grid, setGrid, obstacle, findPath)
+          break
+        case 'bfs':
+          bfs([START_ROW, START_COL], [END_ROW, END_COL], grid, setGrid, obstacle, findPath)
+          break
+        case 'astar':
+          astar([START_ROW, START_COL], [END_ROW, END_COL], grid, setGrid, obstacle, findPath)
+          break
+        default:
+          astar([START_ROW, START_COL], [END_ROW, END_COL], grid, setGrid, obstacle, findPath)
+
+      }
     }
   }, [findPath])
 
@@ -103,15 +117,21 @@ export const Grid = () => {
   }
 
   return (
-    <>
-    <button onClick={() => setFindPath(true)}>Find Path</button>
-    <button onClick={() => window.location.reload()}>Stop/Reset</button>
-    <button onClick={handleFixStart} disabled={fixStart}>Fix Start</button>
-    <button onClick={handleFixEnd} disabled={fixEnd}>Fix End</button>
+    <div className='wrapper'>
+      <div className='controls'>
+        <div>
+          <button onClick={() => setFindPath(true)}>Find Path</button>
+          <button onClick={() => window.location.reload()}>Stop/Reset</button>
+        </div>
+        <div>
+          <button onClick={handleFixStart} disabled={fixStart}>Fix Start</button>
+          <button onClick={handleFixEnd} disabled={fixEnd}>Fix End</button>
+        </div>
+      </div>
 
-    <div className='container' style={{ gridTemplateColumns: `repeat(${num_cols}, 1fr)`}}>
-      {nodes}
+      <div className='container' style={{ gridTemplateColumns: `repeat(${num_cols}, 1fr)`}}>
+        {nodes}
+      </div>
     </div>
-    </>
   )
 }
