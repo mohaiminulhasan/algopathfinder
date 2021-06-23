@@ -5,6 +5,14 @@
   align-items: center;
 }
 
+.top-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vh;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;

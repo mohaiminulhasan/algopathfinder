@@ -12,7 +12,7 @@ export const Grid = () => {
   const [mousePressed, setMousePressed] = useState(false)
   const [fixStart, setFixStart] = useState(false)
   const [fixEnd, setFixEnd] = useState(false)
-  const [algorithm, setAlgorithm] = useState('astar')
+  const [algorithm, setAlgorithm] = useState('dfs')
 
   const START_ROW = start[0]
   const START_COL = start[1]
@@ -22,8 +22,6 @@ export const Grid = () => {
   useEffect(() => {
     setGrid(initialGrid(start, end, obstacle))
   }, [])
-
-  // useEffect(() => console.log(grid && grid[0]), [grid])
 
   useEffect(() => {
     if (findPath) {
@@ -41,6 +39,7 @@ export const Grid = () => {
           astar([START_ROW, START_COL], [END_ROW, END_COL], grid, setGrid, obstacle, findPath)
 
       }
+      setFindPath(false)
     }
   }, [findPath])
 
@@ -117,20 +116,31 @@ export const Grid = () => {
   }
 
   return (
-    <div className='wrapper'>
-      <div className='controls'>
-        <div>
-          <button onClick={() => setFindPath(true)}>Find Path</button>
-          <button onClick={() => window.location.reload()}>Stop/Reset</button>
-        </div>
-        <div>
-          <button onClick={handleFixStart} disabled={fixStart}>Fix Start</button>
-          <button onClick={handleFixEnd} disabled={fixEnd}>Fix End</button>
-        </div>
+    <div className='top-wrapper'>
+      <div>
+        <input type="radio" id="dfs" name="algo" value="dfs" checked={algorithm === 'dfs'} onChange={e => { setAlgorithm(e.target.value); setGrid(initialGrid(start, end, obstacle)); }}/>
+        <label htmlFor="dfs">DFS</label> <br/>
+        <input type="radio" id="bfs" name="algo" value="bfs" checked={algorithm === 'bfs'} onChange={e => { setAlgorithm(e.target.value); setGrid(initialGrid(start, end, obstacle)); }}/>
+        <label htmlFor="bfs">BFS</label> <br/>
+        <input type="radio" id="astar" name="algo" value="astar" checked={algorithm === 'astar'} onChange={e => { setAlgorithm(e.target.value); setGrid(initialGrid(start, end, obstacle)); }}/>
+        <label htmlFor="astar">A*</label> 
       </div>
 
-      <div className='container' style={{ gridTemplateColumns: `repeat(${num_cols}, 1fr)`}}>
-        {nodes}
+      <div className='wrapper'>
+        <div className='controls'>
+          <div>
+            <button onClick={() => setFindPath(true)}>Find Path</button>
+            <button onClick={() => window.location.reload()}>Stop/Reset</button>
+          </div>
+          <div>
+            <button onClick={handleFixStart} disabled={fixStart}>Fix Start</button>
+            <button onClick={handleFixEnd} disabled={fixEnd}>Fix End</button>
+          </div>
+        </div>
+
+        <div className='container' style={{ gridTemplateColumns: `repeat(${num_cols}, 1fr)`}}>
+          {nodes}
+        </div>
       </div>
     </div>
   )
