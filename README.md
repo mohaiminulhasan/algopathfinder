@@ -2,6 +2,8 @@
 
 This project was created with ReactJS with inspiration from AlgoExpert
 
+[Open Project](https://mohaiminulhasan.github.io/pathfinder/)
+
 ## Available Algorithms
 
 * Depth First Search
